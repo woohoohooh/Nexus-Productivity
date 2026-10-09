@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.05);
+  --accent: #6366f1;
+  --accent-fg: #ffffff;
+  --muted: #64748b;
+  --muted-bg: #f1f5f9;
+}
+
+.dark {
+  --bg: #020617;
+  --fg: #f8fafc;
+  --card-bg: #0f172a;
+  --card-border: rgba(255, 255, 255, 0.05);
+  --accent: #818cf8;
+  --accent-fg: #ffffff;
+  --muted: #94a3b8;
+  --muted-bg: #1e293b;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-[var(--fg)] bg-[var(--bg)] transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .glass-card {
+    @apply bg-[var(--card-bg)] border border-[var(--card-border)] rounded-3xl shadow-sm overflow-hidden;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+  }
+}
